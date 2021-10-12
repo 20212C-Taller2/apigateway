@@ -5,18 +5,20 @@
   "scripts": {
     "test": "mocha --recursive --timeout 60000",
     "test-cv": "nyc --reporter=text --all mocha --recursive --timeout 60000",
-    "start": "node ./bin/www",
+    "start": "node app",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "prettier": "prettier --write --print-width 160 '**/*.js'"
   },
   "dependencies": {
+    "axios": "^0.22.0",
+    "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
-    "morgan": "~1.9.1",
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+    "morgan": "~1.9.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
