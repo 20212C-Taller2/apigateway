@@ -12,3 +12,15 @@ Para construir en docker:
 ```shell
 docker image build -t ubademy/apigateway:latest .
 ```
+
+## Heroku
+Subir a Heroku una vez logueado con el cli (heroku y registry de heroku)
+
+```shell
+heroku container:push web -a ubademy-apigateway
+heroku container:release web -a ubademy-apigateway
+```
+
+La app se publica en [https://ubademy-apigateway.herokuapp.com/](https://ubademy-apigateway.herokuapp.com/)
+
+User Api: [https://ubademy-apigateway.herokuapp.com/user/](https://ubademy-apigateway.herokuapp.com/user/)

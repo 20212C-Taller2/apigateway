@@ -4,5 +4,9 @@ WORKDIR /app/
 COPY package.json package-lock.json ./
 RUN npm ci
 
-COPY bin/ routes/ services/ app.js ./
+COPY bin ./bin
+COPY routes ./routes
+COPY services ./services
+COPY app.js ./
+
 CMD npm start
