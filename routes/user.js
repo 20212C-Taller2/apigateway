@@ -16,6 +16,13 @@ router.get('/', function(req, res, next) {
 router.post('/login', (req, res) => {
   api.post(req.path, req.body).then(resp => {
     res.send(resp.data)
+  }).catch( error => {
+    console.log(error.response)
+    res.json({
+      status: error.response.status,
+      statusText: error.response.statusText,
+      data: error.response.data
+    })
   })
 })
 
