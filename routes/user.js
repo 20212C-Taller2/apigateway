@@ -1,10 +1,22 @@
-var express = require('express');
-var router = express.Router();
-
-
+const express = require('express');
+const logger = require('../services/log/logService')
+const router = express.Router();
 const apiAdapter = require('./apiAdapter')
 const BASE_URL = 'https://ubademy-users-api.herokuapp.com/' //TODO: Definir url en env var
 const api = apiAdapter(BASE_URL)
+
+pass_to_user_api = (req, res) => {
+  api.post(req.path, req.body).then(resp => {
+    res.send(resp.data)
+  }).catch(error => {
+    logger.log(error.response)
+    res.json({
+      status: error.response.status,
+      statusText: error.response.statusText,
+      data: error.response.data
+    })
+  })
+}
 
 router.get('/', function(req, res, next) {
   res.json({
@@ -13,35 +25,21 @@ router.get('/', function(req, res, next) {
   });
 });
 
+
 router.post('/login', (req, res) => {
-  api.post(req.path, req.body).then(resp => {
-    res.send(resp.data)
-  }).catch( error => {
-    console.log(error.response)
-    res.json({
-      status: error.response.status,
-      statusText: error.response.statusText,
-      data: error.response.data
-    })
-  })
+  pass_to_user_api(req, res);
 })
 
-router.get('/login/admin', function(req, res, next) {
-  res.json({
-    name: "user/login/admin"
-  });
+router.post('/login/admin', function(req, res, next) {
+  pass_to_user_api(req, res);
 });
 
-router.get('/register', function(req, res, next) {
-  res.json({
-    name: "user/register"
-  });
+router.post('/register', function(req, res, next) {
+  pass_to_user_api(req, res);
 });
 
-router.get('/register/admin', function(req, res, next) {
-  res.json({
-    name: "user/register/admin"
-  });
+router.post('/register/admin', function(req, res, next) {
+  pass_to_user_api(req, res);
 });
 
 module.exports = router;
