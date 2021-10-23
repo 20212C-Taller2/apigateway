@@ -6,6 +6,6 @@ router.use((req, res, next) => {
   next()
 })
 
-router.use("/user", userService)
+router.use("/users", userService)
 
 module.exports = router
