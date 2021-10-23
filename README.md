@@ -17,6 +17,11 @@ docker image build -t ubademy/apigateway:latest .
 Subir a Heroku una vez logueado con el cli (heroku y registry de heroku)
 
 ```shell
+# DEV
+heroku container:push web -a ubademy-apigateway-dev
+heroku container:release web -a ubademy-apigateway-dev
+
+# PROD
 heroku container:push web -a ubademy-apigateway
 heroku container:release web -a ubademy-apigateway
 ```
