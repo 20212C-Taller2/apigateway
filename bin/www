@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('apigateway:server');
+var debug = require('debug')('users:server');
 var http = require('http');
 
 /**
@@ -88,3 +88,5 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+

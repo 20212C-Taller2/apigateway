@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "test": "mocha --recursive --timeout 60000",
+    "test": "mocha --recursive --timeout 60000 --reporter min test",
     "test-cv": "nyc --reporter=text --all mocha --recursive --timeout 60000",
-    "start": "node app",
+    "start": "node ./bin/www",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "prettier": "prettier --write --print-width 160 '**/*.js'"
   },
@@ -16,11 +16,13 @@
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "http-status-codes": "^2.1.4",
     "jade": "~1.11.0",
     "moment": "^2.29.1",
     "morgan": "~1.9.1"
   },
   "devDependencies": {
+    "axios-mock-adapter": "^1.20.0",
     "chai": "^4.2.0",
     "chai-arrays": "^2.2.0",
     "chai-as-promised": "^7.1.1",
