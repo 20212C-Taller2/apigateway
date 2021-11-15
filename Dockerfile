@@ -7,6 +7,6 @@ RUN npm ci
 COPY bin ./bin
 COPY routes ./routes
 COPY services ./services
-COPY app.js ./
+COPY app.js swagger.json ./
 
 CMD npm start
