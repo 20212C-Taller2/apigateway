@@ -19,16 +19,16 @@ get_http_verb = (req) => {
 
 create_headers = (req_headers) => {
     let header = {
-        "Content-type": req_headers["content-type"],
-        "User-agent": "ubademy-apigateway/1",
+        "content-type": req_headers["content-type"],
+        "cser-agent": "ubademy-apigateway/1",
         // "Host": req_headers["host"],
-        "Accept-encoding": req_headers["accept-encoding"],
-        "Connection": "keep-alive",
-        //"Content-length": req_headers["content-length"]
+        "accept-encoding": req_headers["accept-encoding"],
+        "connection": "keep-alive",
+        //"Content-length": req_headers["content-length"],
     }
 
-    if (req_headers["Authorization"] !== undefined) {
-        header["Authorization"] = req_headers["Authorization"]
+    if (req_headers["authorization"] !== undefined) {
+        header["authorization"] = req_headers["authorization"]
     }
 
     return header
@@ -39,7 +39,7 @@ pass_to_user_api = (req, res, base = "") => {
     const api_method = get_http_verb(req)
     const head = create_headers(req.headers)
     api_method(base + req.path, req.body, {headers: head}).then(resp => {
-        res.send(resp.data)
+        res.status(resp.status).send(resp.data)
     }).catch(error => {
         logger.log(error)
 
