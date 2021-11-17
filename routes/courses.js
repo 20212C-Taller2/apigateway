@@ -2,7 +2,7 @@ const express = require('express');
 const logger = require('../services/log/logService')
 const router = express.Router();
 const apiAdapter = require('./apiAdapter')
-const BASE_URL = 'https://ubademy-courses-api.herokuapp.com/' //TODO: Definir url en env var
+const BASE_URL = 'https://ubademy-courses-api.herokuapp.com' //TODO: Definir url en env var
 const api = apiAdapter(BASE_URL)
 const StatusCodes = require("http-status-codes").StatusCodes
 
@@ -37,7 +37,7 @@ create_headers = (req_headers) => {
 pass_to_courses_api = (req, res, base = "") => {
     const api_method = get_http_verb(req)
     const head = create_headers(req.headers)
-    api_method(base + req.path, req.body, {headers: head}).then(resp => {
+    api_method(BASE_URL + base + req.path, req.body, {headers: head}).then(resp => {
         res.status(resp.status).send(resp.data)
     }).catch(error => {
         logger.log(error)
@@ -51,19 +51,19 @@ pass_to_courses_api = (req, res, base = "") => {
 }
 
 router.get('/', function (req, res, next) {
-    pass_to_courses_api(req, res, "courses");
+    pass_to_courses_api(req, res, "/courses");
 });
 
 router.post('/', (req, res) => {
-    pass_to_courses_api(req, res, "courses");
+    pass_to_courses_api(req, res, "/courses");
 });
 
 router.get('/subscriptions', (req, res) => {
-    pass_to_courses_api(req, res, "courses");
+    pass_to_courses_api(req, res, "/courses");
 });
 
 router.get('/:course_id', (req, res) => {
-    pass_to_courses_api(req, res, "courses");
+    pass_to_courses_api(req, res, "/courses");
 });
 
 

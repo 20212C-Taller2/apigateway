@@ -2,7 +2,7 @@ const express = require('express');
 const logger = require('../services/log/logService')
 const router = express.Router();
 const apiAdapter = require('./apiAdapter')
-const BASE_URL = 'https://ubademy-users-api.herokuapp.com/' //TODO: Definir url en env var
+const BASE_URL = 'https://ubademy-users-api.herokuapp.com' //TODO: Definir url en env var
 const api = apiAdapter(BASE_URL)
 const StatusCodes = require("http-status-codes").StatusCodes
 
@@ -38,7 +38,7 @@ create_headers = (req_headers) => {
 pass_to_user_api = (req, res, base = "") => {
     const api_method = get_http_verb(req)
     const head = create_headers(req.headers)
-    api_method(base + req.path, req.body, {headers: head}).then(resp => {
+    api_method(BASE_URL + base + req.path, req.body, {headers: head}).then(resp => {
         res.status(resp.status).send(resp.data)
     }).catch(error => {
         logger.log(error)
@@ -79,15 +79,15 @@ router.post('/register/admin', function (req, res, next) {
 });
 
 router.patch('/:id', function (req, res, next) {
-    pass_to_user_api(req, res, "users");
+    pass_to_user_api(req, res, "/users");
 });
 
 router.post('/:id/block', function (req, res, next) {
-    pass_to_user_api(req, res, "users");
+    pass_to_user_api(req, res, "/users");
 });
 
 router.delete('/:id/block', function (req, res, next) {
-    pass_to_user_api(req, res, "users");
+    pass_to_user_api(req, res, "/users");
 });
 
 module.exports = {
