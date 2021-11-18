@@ -37,7 +37,7 @@ create_headers = (req_headers) => {
 pass_to_courses_api = (req, res, base = "") => {
     const api_method = get_http_verb(req)
     const head = create_headers(req.headers)
-    api_method(BASE_URL + base + req.path, req.body, {headers: head}).then(resp => {
+    api_method(BASE_URL + base + req.url, req.body, {headers: head}).then(resp => {
         res.status(resp.status).send(resp.data)
     }).catch(error => {
         logger.log(error)
