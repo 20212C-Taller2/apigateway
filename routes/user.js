@@ -82,6 +82,10 @@ router.patch('/:id', function (req, res, next) {
     pass_to_user_api(req, res, "/users");
 });
 
+router.get('/:id', function (req, res, next) {
+    pass_to_user_api(req, res, "/users");
+});
+
 router.post('/:id/block', function (req, res, next) {
     pass_to_user_api(req, res, "/users");
 });
