@@ -9,5 +9,6 @@ router.use((req, res, next) => {
 
 router.use("/users", userService.router)
 router.use("/courses", coursesService.router)
+router.use("/subscriptions", coursesService.router)
 
 module.exports = router
