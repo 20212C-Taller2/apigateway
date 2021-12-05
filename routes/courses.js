@@ -24,7 +24,7 @@ router.get('/:id', middleware.validUser, middleware.validUser, function (req, re
   pass_to_courses_api(req, res, "/courses");
 });
 
-router.put('/:id', middleware.validUser, function (req, res, next) {
+router.patch('/:id', middleware.validUser, function (req, res, next) {
   pass_to_courses_api(req, res, "/courses");
 });
 
@@ -32,15 +32,15 @@ router.post('/:id/:role/:user_id', middleware.validUser, function (req, res, nex
   pass_to_courses_api(req, res, "/courses");
 });
 
+router.get('/:id/:role/:user_id', middleware.validUser, function (req, res, next) {
+  pass_to_courses_api(req, res, "/courses");
+});
+
 router.delete('/:id/students/:user_id', middleware.validUser, function (req, res, next) {
   pass_to_courses_api(req, res, "/courses");
 });
 
-router.get('/subscriptions', middleware.validUser, function (req, res) {
-  pass_to_courses_api(req, res, "/courses");
-});
-
-router.get('/:course_id', middleware.validUser, function (req, res) {
+router.post('/:id/exams', middleware.validUser, function (req, res, next) {
   pass_to_courses_api(req, res, "/courses");
 });
 
