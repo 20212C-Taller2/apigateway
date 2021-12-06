@@ -32,7 +32,7 @@ router.post('/:id/:role/:user_id', middleware.validUser, function (req, res, nex
   pass_to_courses_api(req, res, "/courses");
 });
 
-router.get('/:id/:role/:user_id', middleware.validUser, function (req, res, next) {
+router.get('/:role/:user_id', middleware.validUser, function (req, res, next) {
   pass_to_courses_api(req, res, "/courses");
 });
 
