@@ -9,7 +9,7 @@ const pass_to_subscriptions_api = (req, res, base = "") => {
 }
 
 router.get('/', middleware.validUser, function (req, res, next) {
-  pass_to_subscriptions_api(req, res, "subscriptions");
+  pass_to_subscriptions_api(req, res, "/subscriptions");
 });
 
 
