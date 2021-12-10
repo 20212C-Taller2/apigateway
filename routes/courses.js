@@ -40,7 +40,24 @@ router.delete('/:id/students/:user_id', middleware.validUser, function (req, res
   pass_to_courses_api(req, res, "/courses");
 });
 
+  // Exams
 router.post('/:id/exams', middleware.validUser, function (req, res, next) {
+  pass_to_courses_api(req, res, "/courses");
+});
+
+router.get('/:id/exams', middleware.validUser, function (req, res, next) {
+  pass_to_courses_api(req, res, "/courses");
+});
+
+router.post('/:id/exams/:exam_id', middleware.validUser, function (req, res, next) {
+  pass_to_courses_api(req, res, "/courses");
+});
+
+router.patch('/:id/exams/:exam_id', middleware.validUser, function (req, res, next) {
+  pass_to_courses_api(req, res, "/courses");
+});
+
+router.get('/:id/exams/submissions', middleware.validUser, function (req, res, next) {
   pass_to_courses_api(req, res, "/courses");
 });
 
