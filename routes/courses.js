@@ -45,6 +45,10 @@ router.post('/:id/exams', middleware.validUser, function (req, res, next) {
   pass_to_courses_api(req, res, "/courses");
 });
 
+router.put('/:id/exams/:exam_id', middleware.validUser, function (req, res, next) {
+    pass_to_courses_api(req, res, "/courses");
+});
+
 router.get('/:id/exams', middleware.validUser, function (req, res, next) {
   pass_to_courses_api(req, res, "/courses");
 });
