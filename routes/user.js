@@ -8,14 +8,11 @@ const pass_to_user_api = (req, res, base = "") => {
 }
 
 router.get('/', function (req, res, next) {
-  res.json({
-    name: "users/",
-    version: "v1",
-  });
+  pass_to_user_api(req, res);
 });
 
 router.post('/login', (req, res) => {
-  pass_to_user_api(req, res);
+  pass_to_user_api(req, res, "/users");
 })
 
 router.post('/login/admin', function (req, res, next) {
