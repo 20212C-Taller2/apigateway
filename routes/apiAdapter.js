@@ -28,7 +28,7 @@ module.exports.run_axios = (req, res, url) => {
     headers: create_headers(req.headers)
   }
   if (req.method === "POST" || req.method === "PUT" || req.method === "PATCH") {
-    config.data = {...req.body}
+    config.data = req.body
   }
 
   axios(config).then(resp => {
