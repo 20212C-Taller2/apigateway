@@ -8,7 +8,7 @@ const pass_to_subscriptions_api = (req, res, base = "") => {
   api.run_axios(req, res, BASE_URL + base);
 }
 
-router.get('/', middleware.validUser, function (req, res, next) {
+router.get('/', function (req, res, next) {
   pass_to_subscriptions_api(req, res, "/subscriptions");
 });
 
