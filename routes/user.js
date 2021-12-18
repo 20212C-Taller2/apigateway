@@ -11,6 +11,10 @@ router.get('/', function (req, res, next) {
   pass_to_user_api(req, res, "/users");
 });
 
+router.post('/', function (req, res, next) {
+  pass_to_user_api(req, res, "/users");
+});
+
 router.post('/login', (req, res) => {
   pass_to_user_api(req, res);
 })
