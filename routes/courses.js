@@ -16,7 +16,7 @@ router.post('/', middleware.validUser, function (req, res) {
   pass_to_courses_api(req, res, "/courses");
 });
 
-router.get('/types', middleware.validUser, function (req, res, next) {
+router.get('/types', function (req, res, next) {
   pass_to_courses_api(req, res, "/courses");
 });
 
