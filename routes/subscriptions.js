@@ -12,6 +12,13 @@ router.get('/', function (req, res, next) {
   pass_to_subscriptions_api(req, res, "/subscriptions");
 });
 
+router.get('/courses', middleware.validUser, function (req, res, next) {
+  pass_to_subscriptions_api(req, res);
+});
+
+router.post('/courses', middleware.validUser, function (req, res, next) {
+  pass_to_subscriptions_api(req, res);
+});
 
 router.post('/subscribers', middleware.validUser, function (req, res, next) {
   pass_to_subscriptions_api(req, res);
