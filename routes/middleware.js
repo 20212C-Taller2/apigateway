@@ -1,7 +1,7 @@
 const axios = require('axios');
 const logger = require("../services/log/logService");
 const {StatusCodes} = require("http-status-codes");
-const {BASE_URL} = require("./user");
+const BASE_URL = 'https://ubademy-users-api.herokuapp.com'
 
 exports.validUser = (req, res, next) => {
   if (!req.headers.authorization) {
