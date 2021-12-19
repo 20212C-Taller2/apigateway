@@ -52,6 +52,10 @@ router.delete('/:id/block', middleware.validUser, function (req, res, next) {
   pass_to_user_api(req, res, "/users");
 });
 
+router.post('/notify', middleware.validUser, function (req, res, next) {
+  pass_to_user_api(req, res, "/users");
+});
+
 module.exports = {
   router,
   BASE_URL,
