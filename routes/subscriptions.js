@@ -24,6 +24,9 @@ router.post('/courses/:id/subscribeStudent', middleware.validUser, function (req
   pass_to_subscriptions_api(req, res);
 });
 
+router.delete('/courses/:id/subscribeStudent/:subscriberId', middleware.validUser, function (req, res, next) {
+  pass_to_subscriptions_api(req, res);
+});
 
 router.post('/subscribers', middleware.validUser, function (req, res, next) {
   pass_to_subscriptions_api(req, res);
