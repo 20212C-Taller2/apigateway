@@ -34,7 +34,7 @@ router.get('/subscribers/:id', middleware.validUser, function (req, res, next) {
   pass_to_subscriptions_api(req, res);
 });
 
-router.post('subscribers/:id/subscription', middleware.validUser, function (req, res, next) {
+router.post('/subscribers/:id/subscription', middleware.validUser, function (req, res, next) {
   pass_to_subscriptions_api(req, res);
 });
 
